@@ -10,6 +10,12 @@ class calls extends StatefulWidget {
 class _callsState extends State<calls> {
 
   int _selectedIndex = 0;
+
+  void _ScreenSelect(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,6 +23,8 @@ class _callsState extends State<calls> {
         title: Text('BottomNavigationBar Example'),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+          onTap: _ScreenSelect,
           items: <BottomNavigationBarItem> [
             BottomNavigationBarItem(
                 icon: Icon(Icons.call),
